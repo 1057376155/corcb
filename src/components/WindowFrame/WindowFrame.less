@@ -1,0 +1,38 @@
+.window{
+    width: 50rem;
+    height: 50rem;
+    position:absolute;
+    background: rgb(255, 255, 255);
+    padding-top:3rem;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 4rem #bcbcbcab; 
+    // transition:transform ease .3s;
+    transition:transform cubic-bezier(.4,.31,0,1.01) .5s;
+    overflow: hidden;
+    z-index:1;
+    &.active{
+        z-index:2;
+    }
+    &.close{
+        transition:transform cubic-bezier(.86,.39,0,1) .8s;
+        // transform: translateY(300%) !important;
+    }
+    &.full{
+        transition:all ease .3s;
+        width: 100% !important;
+        height: 100% !important;
+        position: absolute;
+        top: 0px;
+        z-index: 3;
+    }
+    &.mini{
+        transition:all ease .3s;
+    }
+    &.isDrag{
+        // transition:all ease 0.01s !important;
+        transition:width ease 0.00001s !important;
+    }
+
+}

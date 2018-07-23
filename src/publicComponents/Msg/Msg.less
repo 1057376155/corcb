@@ -1,0 +1,31 @@
+.Msg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 4rem;
+    left: 0px;
+    z-index:3;
+    transform: translateY(-100px);
+    transition: all ease 0.4s;
+}
+.Msg.active{
+    transform: translateY(0px);
+}
+.Msg.none{
+    height: 0%;
+    // display: none;
+}
+.Msg_content{
+    padding: 1rem 2rem;
+    top: 1rem;
+    font-size: 1.4rem;
+    margin: 0px auto;
+    max-width:10rem;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    color: rgb(73, 73, 73);
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    border: solid 1px #dadada;
+}

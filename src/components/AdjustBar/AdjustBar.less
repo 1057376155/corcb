@@ -1,0 +1,32 @@
+.AdjustBar{
+    position: absolute;
+    opacity: 0;
+    z-index: 3;
+    @width:.3rem;
+    &.left{
+        width: @width;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+        &:hover{
+            cursor: w-resize;
+        }
+    }
+    &.right{
+        width: @width;
+        height: 100%;
+        right: 0px;
+        top: 0px;
+        &:hover{
+            cursor: e-resize;
+        }
+    }
+    &.bottom{
+        width: 100%;
+        height: @width;
+        bottom: 0px;
+        &:hover{
+            cursor:s-resize;
+        }
+    }
+}

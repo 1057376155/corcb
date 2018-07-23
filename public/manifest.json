@@ -1,0 +1,28 @@
+{
+  "short_name": "corcb",
+  "name": "chrome extend",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_popup": "tab.html",
+    "default_title": "corcb"
+  },
+  "permissions": [
+    "tabs",
+    "clipboardRead",
+    "clipboardWrite",
+    "system.cpu",
+    "system.memory",
+    "*://*.unsplash.com/*",
+    "*://*.weather.sina.com.cn/",
+    "*://*.weather.com.cn/*"
+  ],
+  "icons": {
+    "16": "./icons/icon16.png",             
+    "48": "./icons/icon48.png",            
+    "128": "./icons/icon128.png" 
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "version": "2.0"
+}

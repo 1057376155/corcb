@@ -1,0 +1,69 @@
+.HistoryList{
+    height: 100%;
+    width:100%;
+    background: rgba(255, 255, 255, 0.534);
+    border-radius: 5px;
+    ul{
+        padding: .5rem;
+        height: 100%;
+        overflow: auto;
+        box-sizing: border-box;
+    }
+    li{
+        font-size: 14px;
+        cursor: pointer;
+        line-height: 25px;
+        display: flex;
+        position: relative;
+        word-break: break-all;
+        text-align: left;
+        background: rgb(247, 247, 247);
+        margin: 1rem;
+        padding: 1rem;
+        border-radius:0.5rem; 
+        transition: all ease .4s;
+        &:hover{
+            color: rgb(85, 110, 255);
+            .closeTab{
+                transform: scale(1);
+                background: rgb(255, 64, 64);
+            }
+        }
+        .favIconUrl{
+            vertical-align: middle;
+            width: 3rem;
+            border-radius: 50%;
+        }
+        .closeTab{
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            right:1rem;
+            margin: auto;
+            width:20px;
+            height: 20px;
+            transform: scale(0.3);
+            background: rgb(165, 165, 165);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all ease .3s;
+            img{
+                transition: all ease .3s;
+                width: 50%;
+                height: 50%;
+                opacity: 0;
+            }
+            &:hover{
+                img{
+                    opacity: 1;
+                }
+            }
+        }
+        &.active{
+            background: #ffe6d0;
+        }
+    }
+}

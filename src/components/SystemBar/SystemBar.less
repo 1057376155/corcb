@@ -1,0 +1,138 @@
+.SystemBar{
+    width: 100%;   
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    padding: 0px 1rem;
+    background: #f3f3f3;
+    box-sizing: border-box;
+    position: absolute;
+    user-select: none;
+    top: 0;
+    z-index: 2;
+    transition: all ease 1s;
+    cursor: pointer;
+    .title{
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: auto;
+        color: #666666;
+        user-select: none;
+        font-size: 1.4rem;
+    }
+}
+
+.SystemBarBtn{
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0px 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+.SystemBarBtn_item_item{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+// 关闭按钮
+@thickness:0.2rem;
+.closeBtn{
+    .SystemBarBtn;
+    background: #ff3737;
+    .closeBtnImg_item{
+        background: #ff3737;
+        position: absolute;
+        transition: all ease .3s;
+    }
+    &:hover{
+        .closeBtnImg_item{
+            background: white;
+        }
+    }
+    .closeBtnImg{
+        .SystemBarBtn_item_item;
+        transform: rotate(45deg);
+        .Transverse{
+            width: 50%;
+            height: @thickness;
+        }
+        .longitudinal{
+            width: @thickness;
+            height: 50%;
+        }
+    }
+}
+// 最小化按钮
+.MiniBtn{
+    .SystemBarBtn;
+    background: #ff9112;
+    .MiniBtnImg_item{
+        background: #ff9112;
+        position: absolute;
+        transition: all ease .3s;
+    }
+    &:hover{
+        .MiniBtnImg_item{
+            background: white;
+        }
+    }
+    .MiniBtnImg{
+        .SystemBarBtn_item_item;
+        .Transverse{
+            width: 50%;
+            height: @thickness;
+        }
+    }
+}
+// 最大化按钮
+.FullBtn{
+    @FullBtnColor: #00db87;
+    .SystemBarBtn;
+    background: @FullBtnColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .FullBtnImg{
+        // background: #ff9112;
+        width: 5px;
+        height: 5px;
+        transition: all ease .3s;
+        border:@FullBtnColor solid 2px;
+    }
+    &:hover{
+        .FullBtnImg{
+            // border:#ffffff solid 2px;
+        }
+        .circle{
+            background: white;
+       }
+    }
+}
+.circleHBtn{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover{
+        .circle{
+            background: white;
+       }
+    }
+}
+.circle{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    display:block;
+    transition: all ease .4s;
+}

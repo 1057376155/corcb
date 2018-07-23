@@ -1,0 +1,48 @@
+.Dock{
+    width: 100%;
+    height: 8rem;
+    // background: white;
+    position: fixed;
+    bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    z-index: 3;
+    .Dock_item{
+        background: rgba(100, 100, 100, 0.493);
+        padding: 1rem 2rem;
+        border-radius:0.5rem; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all ease .4s;
+        .Dock_item_Icon{
+            width: 4rem;
+            font-size:1.2rem;
+            margin: 0px 0.5rem;
+            transition: all cubic-bezier(.82,.27,.09,1) .4s;
+            &:hover{
+                transform: translateY(-1rem);
+                transform: scale(1.2)
+            }
+            p{
+                margin: 0.5rem 0px;
+            }
+            img{
+                width:100%;
+            }
+        }
+    }
+    
+}
+
+
+.Dock_item_transitionGroup{
+    // width: 100%;
+    // height: 100%;
+}
+
+
+  
