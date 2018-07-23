@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 import * as PicAction  from '../../store/pic/action';
 import * as WindowAction  from '../../store/window/action';
 import Unsplash, { toJson } from 'unsplash-js';
-import keys from '../../config/keys';
 import Window from '../Window/Window';
 import Waterfall from '../Waterfall/Waterfall'
 class BgSet extends Component {
@@ -17,13 +16,8 @@ class BgSet extends Component {
             canGet:true,//是否能够再次请求,
             test:true,//
             unsplash:new Unsplash({
-                // applicationId: "cc7de8e09b8cc25d19c8c38437cecff342f5a3e5881563ed153ee8149931ed1e",
                 applicationId: "fa60305aa82e74134cabc7093ef54c8e2c370c47e73152f72371c828daedfcd7",
-                // secret: "563dd3cfe4d4dcf4d651e8f17f8b219027edec160d725376dd6af3a8834f50ef",
-                        // "fa60305aa82e74134cabc7093ef54c8e2c370c47e73152f72371c828daedfcd7"
             }),
-            unsplashKey:'cc7de8e09b8cc25d19c8c38437cecff342f5a3e5881563ed153ee8149931ed1e',
-            keys:keys,
             index:0,//鼠标正在浏览哪个 图片
             itemStyle:{}
         }
@@ -38,7 +32,6 @@ class BgSet extends Component {
         
     }
     componentWillReceiveProps(nextProps){
-        console.log('====-=-=-=-=')
         this.resize=nextProps.windowids.windowIds[nextProps.id].resize
         //为了性能的考虑 在拖拉的时候只有第一次 会触发大小变化的字段 结束的时候改变变化 拖拉缩小放大的时候 不会改变
         var time=setInterval(()=>{
@@ -77,7 +70,7 @@ class BgSet extends Component {
           }).catch((err)=>{
               if(err.message=="Unexpected token R in JSON at position 0"){
                   //超出请求次数,切换key
-                  console.log("超出请求次数,切换key")
+                //   console.log("超出请求次数,切换key")
               }
           });
     }
@@ -91,19 +84,15 @@ class BgSet extends Component {
         this.props.winFN.Msg({show:true,text:'正在加载'})
         this.state.unsplash.photos.getRandomPhoto({width:1920,height:1080,count:30}).then(toJson).then(json => {
           this.props.winFN.Msg({show:false,text:'正在加载'})
-        //   console.log(json,'--=',this.state.pics)
           var arr=[...this.state.pics,...json]
           var idobj={}
           var picArr=[];
           arr.forEach((item,index)=>{
-            //   console.log(item.id)
               if(!idobj[item.id]){
                 idobj[item.id]=item.id
                 picArr.push(item)
               }
-            // !idobj[item.id]?picArr.push(item):idobj[item.id]=item.id
           })
-        //   console.log(picArr.length,'len')
           this.setState({
                 canGet:true,
                 pics:[...this.state.pics,...json]
@@ -115,7 +104,6 @@ class BgSet extends Component {
         }).catch((err)=>{
             if(err.message=="Unexpected token R in JSON at position 0"){
                 //超出请求次数,切换key
-                // this.replaceKey();
             }
         });
     }
@@ -143,25 +131,8 @@ class BgSet extends Component {
         }).catch((err)=>{
             if(err.message=="Unexpected token R in JSON at position 0"){
                 //超出请求次数,切换key
-                // this.replaceKey();
             }
         });
-    }
-    replaceKey(){
-        //替换key 函数
-        var keys=this.state.keys.appkeys;
-        for(var i=0;i<keys.length;i++){
-            if(keys[i].applicationId==this.state.unsplashKey){
-                var op=keys[i+1]
-                this.setState({
-                    unsplash:new Unsplash(op),
-                    unsplashKey:op.applicationId 
-                })
-                this.getPics();
-                return;
-            }
-        }
-
     }
     ScrollFN(e){
         //滑动事件
