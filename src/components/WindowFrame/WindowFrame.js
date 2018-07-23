@@ -286,6 +286,7 @@ import './WindowFrame.less';
       <div
         style={this.state.style}
         onClick={this.setActive.bind(this)}
+        draggable="false"
         className={
           [
             'window',
