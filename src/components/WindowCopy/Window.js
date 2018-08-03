@@ -28,7 +28,7 @@ import chrome from '../../config/chromeOp'
             height:500,
             resize:false,//窗口是否发生大小变化
           }
-          console.log(windowsObj,'windowsObj')
+          // console.log(windowsObj,'windowsObj')
           for(var property in windowsObj){
             if(props[property]){
               //如果props中存在windowsObj中的属性的话,
@@ -134,6 +134,7 @@ import chrome from '../../config/chromeOp'
               delete DragtWindowsObj.oldTop
               delete DragtWindowsObj.oldLeft
               this.setStateValue(DragtWindowsObj)
+              // console.log('0-')
               this.setState({
                 xs:xs,
                 ys:ys,

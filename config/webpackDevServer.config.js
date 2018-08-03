@@ -106,6 +106,13 @@ module.exports = function(proxy, allowedHost) {
           '^/weather': ''
         }
       },
+      "/github": {
+        target: "https://github.com/",
+        changeOrigin: true,
+        pathRewrite: {
+          '^/github': ''
+        }
+      }
     },
     before(app) {
       // This lets us open files from the runtime error overlay.

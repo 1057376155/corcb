@@ -1,7 +1,7 @@
 .window{
     width: 50rem;
     height: 50rem;
-    position:fixed;
+    position:absolute;
     background: rgb(255, 255, 255);
     padding-top:3rem;
     top: 0;
@@ -13,18 +13,8 @@
     overflow: hidden;
     z-index:1;
     user-select: none;
-    contain: content;
     &.active{
         z-index:2;
-    }
-    &.Noactive{
-        .windowChildren{
-            overflow: hidden;
-            // visibility:hidden
-            // display: none;
-            // opacity: 0.3;
-            // visibility: hidden;
-        }
     }
     &.close{
         transition:transform cubic-bezier(.86,.39,0,1) .8s;
@@ -44,27 +34,6 @@
     &.isDrag{
         // transition:all ease 0.01s !important;
         transition:none !important;
-        .windowChildren{
-            // overflow: hidden;
-            // display: none;
-            // visibility: hidden;
-        }
-    }
-    &.AdjustBarDrag{
-        display: none;
-    }
-    &.NoAdjustBarDrag{
-        display: none;
-    }
-    &.NoDrag{
-        // display: none;
-    }
-    .windowChildren{
-        width: 100%;
-        height: 100%;
-        &>div{
-            // contain: content;
-        }
     }
 
 }

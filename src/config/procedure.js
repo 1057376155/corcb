@@ -54,5 +54,11 @@ export default{
       procedureName:'SystemPanel',
       noPushDock:true,//不把程序加入Dock
       element:require("../components/SystemPanel/SystemPanel"),
+    },
+    MemoUrl:{
+      name:'常用网址',
+      procedureName:'MemoUrl',
+      icon:require('./img/url.svg'),
+      element:require("../components/MemoUrl/MemoUrl"),
     }
 }

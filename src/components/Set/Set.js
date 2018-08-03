@@ -6,6 +6,8 @@ import * as windowActive from '../../store/window/action';
 import * as weatherActive from '../../store/weather/action';
 import city from '../../config/city'
 import localforage from 'localforage'
+import api from '../../api/http';
+import chrome from '../../config/chromeOp';
 import './Set.less';
 class Set extends Component {
   constructor(props){
@@ -15,6 +17,7 @@ class Set extends Component {
       defaultValue:props.windowids.rootFontSize?props.windowids.rootFontSize:8,
       cityNames:[],
       selectCity:'',//天气城市
+      newVersion:'',
     }
   }
   componentWillReceiveProps(nextProp){
@@ -31,6 +34,7 @@ class Set extends Component {
     this.setState({
       selectCity:this.props.Weather.city
     })
+    this.getVersion();
   }
   getNum(e){
     this.setState({
@@ -86,6 +90,33 @@ class Set extends Component {
    })
    
  }
+ getVersion(){
+  //获取最新版本
+  var url="https://github.com/1057376155/corcb/blob/master/package.json";
+  if(chrome.noChrome){
+    url="/github/1057376155/corcb/blob/master/package.json"
+  }
+  api.getFN({
+      url:url
+  }).then((r)=>{
+      this.setState({
+        newVersion:r.data.match(/version.*>(\d\.\d.\d)</i)[1]
+      })
+      
+  })
+  }
+  getNewVersion(){
+    //去下载最新版本
+    window.open("https://github.com/1057376155/corcb/blob/master/build.rar")
+  }
+  clearSystemConfig(e){
+    //重置配置文件
+    // console.log('---')
+    e.stopPropagation();
+    localStorage.setItem("redux","{}")
+    window.location.href=window.location.href
+    
+  }
   render() {
     return (
       <div className="Set">
@@ -114,8 +145,16 @@ class Set extends Component {
             </div>
           </div>
           <div className="cell">
+            <p>系统管理</p>
+            <div className="clearSystemConfig">
+              <button onClick={this.clearSystemConfig.bind(this)}>重置系统配置文件</button>
+              <p>仅仅会清空系统配置文件,不会清空程序的缓存</p>
+            </div>
+          </div>
+          <div className="cell">
             <p>版本</p>
-            <p>v1.2.0</p>
+            <p>v1.2.0 <strong onClick={this.getNewVersion}>{this.state.newVersion?"最新版本"+this.state.newVersion:""}</strong></p>
+            
           </div>
           <div className="cell">
             <p>关于作者</p>

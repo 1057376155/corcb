@@ -25,6 +25,7 @@ const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const printHostingInstructions = require('react-dev-utils/printHostingInstructions');
 const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const printBuildError = require('react-dev-utils/printBuildError');
+var btime=new Date().getTime()
 
 const measureFileSizesBeforeBuild =
   FileSizeReporter.measureFileSizesBeforeBuild;
@@ -42,6 +43,7 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
 
 // First, read the current file sizes in build directory.
 // This lets us display how much they changed later.
+chromeAnnotation();
 measureFileSizesBeforeBuild(paths.appBuild)
   .then(previousFileSizes => {
     // Remove all content but keep the directory so that
@@ -54,6 +56,7 @@ measureFileSizesBeforeBuild(paths.appBuild)
   })
   .then(
     ({ stats, previousFileSizes, warnings }) => {
+      chromeNoAnnotation();
       if (warnings.length) {
         console.log(chalk.yellow('Compiled with warnings.\n'));
         console.log(warnings.join('\n\n'));
@@ -94,14 +97,14 @@ measureFileSizesBeforeBuild(paths.appBuild)
       );
     },
     err => {
-      console.log(chalk.red('Failed to compile.\n'));
-      printBuildError(err);
-      process.exit(1);
+      chromeNoAnnotation();
+     
     }
   );
 
 // Create the production build and print the deployment instructions.
 function build(previousFileSizes) {
+  
   console.log('Creating an optimized production build...');
 
   let compiler = webpack(config);
@@ -147,4 +150,36 @@ function copyPublicFolder() {
     dereference: true,
     filter: file => file !== paths.appHtml,
   });
+}
+
+function chromeAnnotation(){
+  var file=path.join(__dirname, "../src/config/chromeOp.js")
+  var str="";
+  fs.readFile(file, 'utf8', function(err, data) {
+    var dataList=data.match(/.*\r/g)
+    dataList.forEach((item,index)=>{
+        str+="//"+item+"\n"
+    })
+    str+=("export default chrome")
+    fs.writeFile(file, str, 'utf8',(r)=>{
+        console.log("添加注释")
+    });
+    
+  })
+}
+
+function chromeNoAnnotation(){
+  //解开注释
+  
+  var file=path.join(__dirname, "../src/config/chromeOp.js")
+  fs.readFile(file, 'utf8', function(err, data) {
+    console.log("解开注释")
+    fs.writeFile(file, data.replace(/\/\//g,''), 'utf8',(r)=>{
+      console.log('打包时间'+(new Date().getTime()-btime)/1000)
+      console.log(chalk.red('Failed to compile.\n'));
+      printBuildError(err);
+      process.exit(1);
+    });
+    
+  })
 }

@@ -1,7 +1,7 @@
 {
   "short_name": "corcb",
-  "name": "chrome extend",
-  "manifest_version": 2,
+  "name": "corcb",
+  "manifest_version":2,
   "browser_action": {
     "default_popup": "tab.html",
     "default_title": "corcb"
@@ -10,10 +10,11 @@
     "tabs",
     "clipboardRead",
     "clipboardWrite",
+    "downloads",
     "system.cpu",
     "system.memory",
     "*://*.unsplash.com/*",
-    "*://*.weather.sina.com.cn/",
+    "*://*.github.com/*",
     "*://*.weather.com.cn/*"
   ],
   "icons": {
@@ -24,5 +25,5 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "version": "2.0"
+  "version": "1.2.1"
 }

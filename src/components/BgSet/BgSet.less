@@ -15,43 +15,109 @@
     position: relative;
     box-sizing: border-box;
     overflow-x: hidden;
+    display: flex;
+    overflow: hidden;
+    // flex-flow: column;
     &.hide{
         // transform:translateY(500%);
     }
     &.active{
         // transform:translateY(0%);
     }
-    .Waterfall_item{
-        user-select: none;
+    &.fnBarShow{
+        .phone_type{
+            display: none;
+        }
+        .fnBarIcon{
+            display: flex;
+        }
     }
-    .pics{
-        width: 100%;
-        // height: 100%;
-        // overflow: auto;
-        display: flex;
-        flex-wrap: wrap;
-        // display: grid;
-        // grid-template-columns: 33.33% 33.33% 33.33%;
-        // grid-template-rows: 50px 50px;
-        // grid-gap: 5px;
-        // justify-items: stretch;
-        overflow: hidden;
+    .fnBarIcon{
+        display: none;
+        position: absolute;
+        width: 3rem;
+        height: 3rem;
+        background: #2d76ff;
+        border-radius: 2rem;
+        top: 1rem;
+        right: 2rem;
+        z-index: 2;        
+        align-items: center;
+        justify-content: center;
+        transform: rotate(180deg);
+        img{
+            width: 2rem;
+        }
 
     }
-    // .pics_item_pic{
+    .Waterfall_item{
+        flex: 1;
+        user-select: none;
+        height: 100%;
+        padding:1rem .5rem;
+        box-sizing: border-box;
+        position: relative;
+    }
+    .Waterfall_item_item{
+        overflow: auto;
+        height: 100%;
+        padding-bottom: 5rem;
+        box-sizing: border-box;
+    }
+    .Waterfall_item_item_item{
+        column-count: 4;
+        column-gap: 0px;
+        
+    }
+    .pics{
+
+    }
+    .phone_type{
+        flex-basis:20rem;
+        background: rgb(241, 241, 241);
+        p{
+            background: white;
+            margin: 1rem; 
+            padding: 1rem;
+            border-radius: .5rem;
+            font-size: 1.4rem;
+            color: rgb(70, 70, 70);
+            &:hover{
+                transition:all ease .3s;
+                background: rgb(57, 133, 255);
+                color: white;
+            }
+            &.active{
+                background: rgb(57, 133, 255);
+                color: white;
+            }
+        }
+    }
         .pics_item_pic_item{
-            // width: 100%;
-            // height: 100%;
-            // padding-bottom: 100%;
-            // margin: auto;
-            // background: white;
-            // overflow: hidden;
-            // position: relative;
-            // display: flex;
-            // align-items: center;
-            // justify-content: center;
+            position: relative;
+            margin:1rem 0.5rem;
             user-select: none;
             overflow: hidden;
+            break-inside: avoid;
+            &:first-child{
+                margin-top: 0px;
+            }
+            .download_img{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                color: white;
+                height: 3rem;
+                background: rgba(0, 0, 0,.5);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transform: translateY(5rem);
+                transition: all ease .4s;
+                span{
+                    margin-right:1rem; 
+                }
+            }
             .user{
                 position: absolute;
                 width: 100%;
@@ -60,32 +126,45 @@
                 background: rgba(54, 54, 54, 0.507);
                 color: white;
                 padding: 1rem 0px;
-                transform: translateY(-4rem);
+                transform: translateY(-10rem);
                 transition: all ease .4s;
                 z-index: 2;
                 cursor: pointer;
             }
             img{
-                // position: absolute;
-                // min-height: 100%;
-                // min-width: 100%;
-                // object-fit: cover;
+                display: block;
+                width: 100%;
                 user-select: none;
             }
             &:hover{
-              .user{
+            //   .user{
+            //     transform: translateY(0rem);
+            //   }  
+              .download_img{
                 transform: translateY(0rem);
-              }  
+              }
             }
         }
 
-    // }
+        .page_button{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height:5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            span{
+                padding: .8rem 2rem;
+                margin: 1rem;
+                background: rgb(45, 118, 255);
+                border-radius: 4rem;
+                font-size: 1.4rem;
+                color: white;
+            }
+        }
     
 }
 
-.test{
-    width: 100px;
-    height: 100px;
-    background: red;
-    display: block;
-}

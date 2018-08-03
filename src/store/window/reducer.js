@@ -19,6 +19,8 @@ let defaultState = {
     },
     bgImg:require("../../img/wallhaven-244786.png"),
     windowIds:{},
+    dragId:'',//正在拖拽的窗口id
+    adjustBarDragId:'',//正在拖放已缩放窗口的id
     activeWindId:'',//获取焦点的window
     rootFontSize:8,//初始化根字体大小
 }
@@ -79,10 +81,19 @@ export const reducer = (state = defaultState, action) => {
         return state
       case actionType.setBgImg:
         //设置背景
+        // if(action.img!='base64Bgimg'&&action.img==state.bgImg){
+        //   return state
+        // }
         return {...state,...{bgImg:action.img}}
       case actionType.setWindows:
-        //设置背景
-        return action.windows
+        //设置所有的窗口
+        return {...state,...{windowIds:action.windows}}
+      case actionType.setDragId:
+        //设置拖拉窗口的id
+        return {...state,...{dragId:action.id}}
+      case actionType.setAdjustBarDragId:
+        //设置拖拉缩放窗口的id
+        return {...state,...{adjustBarDragId:action.id}}
       default:  
           return state;  
   }  

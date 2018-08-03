@@ -8,9 +8,16 @@ import chrome from '../../config/chromeOp'
       super()
       this.state={
           list:[
-              {title:'wqosdflsdaakfjdasklfjklsdfjsdljklklwqosdflsdaakfjdasklfjklsdfjsdljklklwqosdflsdaakfjdasklfjklsdfjsdljklklwqosdflsdaakfjdasklfjklsdfjsdljklklwqosdflsdaakfjdasklfjklsdfjsdljklklwqosdflsdaakfjdasklfjklsdfjsdljklklwqosdflsdaakfjdasklfjklsdfjsdljklklwqosdflsdaakfjdasklfjklsdfjsdljklkl',id:1},
-              {title:'chen2'},
-              {title:'chen3'}
+            {title:'开放的航空收到付款就好撒的开发阿斯顿发空间哈时间的开发和受到罚款还是对方讲课阿萨德开房间哈萨克焦点房间卡速度发货是对方就会是地方就是快点发货',id:1},
+            {title:'开放的航空收到付款就好撒的开发阿斯顿发空间哈时间的开发和受到罚款还是对方讲课阿萨德开房间哈萨克焦点房间卡速度发货是对方就会是地方就是快点发货',id:1},
+            {title:'开放的航空收到付款就好撒的开发阿斯顿发空间哈时间的开发和受到罚款还是对方讲课阿萨德开房间哈萨克焦点房间卡速度发货是对方就会是地方就是快点发货',id:1},
+            {title:'开放的航空收到付款就好撒的开发阿斯顿发空间哈时间的开发和受到罚款还是对方讲课阿萨德开房间哈萨克焦点房间卡速度发货是对方就会是地方就是快点发货',id:1},
+            {title:'开放的航空收到付款就好撒的开发阿斯顿发空间哈时间的开发和受到罚款还是对方讲课阿萨德开房间哈萨克焦点房间卡速度发货是对方就会是地方就是快点发货',id:1},
+            {title:'开放的航空收到付款就好撒的开发阿斯顿发空间哈时间的开发和受到罚款还是对方讲课阿萨德开房间哈萨克焦点房间卡速度发货是对方就会是地方就是快点发货',id:1},
+            {title:'开放的航空收到付款就好撒的开发阿斯顿发空间哈时间的开发和受到罚款还是对方讲课阿萨德开房间哈萨克焦点房间卡速度发货是对方就会是地方就是快点发货',id:1},
+            {title:'开放的航空收到付款就好撒的开发阿斯顿发空间哈时间的开发和受到罚款还是对方讲课阿萨德开房间哈萨克焦点房间卡速度发货是对方就会是地方就是快点发货',id:1},
+            {title:'开放的航空收到付款就好撒的开发阿斯顿发空间哈时间的开发和受到罚款还是对方讲课阿萨德开房间哈萨克焦点房间卡速度发货是对方就会是地方就是快点发货',id:1},
+            {title:'开放的航空收到付款就好撒的开发阿斯顿发空间哈时间的开发和受到罚款还是对方讲课阿萨德开房间哈萨克焦点房间卡速度发货是对方就会是地方就是快点发货',id:1},
             ]
       }
   }
@@ -54,14 +61,14 @@ import chrome from '../../config/chromeOp'
   goLink(item,e){
     //去到这一页
     chrome.tabs.update(item.id, {selected:true,pinned:false}, function (r){
-        console.log(r)
+        // console.log(r)
     })
   }
   closeTab(item,e){
     //关闭页面
     e.stopPropagation();
     chrome.tabs.remove(item.id, function (r){
-        console.log(r)
+        // console.log(r)
     })
   }
 }

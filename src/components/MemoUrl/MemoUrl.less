@@ -1,0 +1,129 @@
+.MemoUrl{
+    height: 100%;
+    overflow: auto;
+    background: #eeeeee;
+    .MemoUrl_list{
+        padding-bottom: 6rem;
+        .url{
+            font-size: 1.8rem;
+            padding: 1rem;
+            background: white;
+            margin: 1rem;
+            border-radius: 2rem;
+            strong{
+                margin-right:1rem; 
+            }
+        }
+        .urlNameAndClickNum{
+            display: flex;
+            align-items: center;
+            padding: .5rem 0px;
+            .urlName{
+                font-size: 2rem;
+                font-weight: 800;
+                flex: 1;
+                text-align: left;
+                color: #646464;
+                word-break: break-all;
+            }
+            .urlClickNum{
+                flex: 1;
+                text-align: right;
+                color: #999999;
+            }
+        }
+        .urlText{
+            text-align: left;
+            padding: .5rem 0px;
+            color: #727272;
+            word-break: break-all;
+        }
+        .urlFn{
+            margin-top:1rem;
+            text-align: left;
+        }
+        .delBtn{
+            background: rgb(255, 80, 80);
+            color: white;
+            padding: .4rem 2rem;
+            border-radius: 4rem;
+        }
+
+    }
+    .MemoUrl_Management{
+        width: 100%;
+        margin: auto;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        padding: 3rem;
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: white;
+        transform: translateY(100%);
+        transition:transform ease .4s;
+        z-index: 1;
+        &.active{
+            transform: translateY(0%);
+        }
+        input{
+            width: 100%;
+            height: 4.5rem;
+            display: block;
+            margin: 1rem 0px;
+            font-size: 1.6rem;
+            text-align: center;
+            border-radius: 3rem;
+            border: #999999 solid 1px;
+            outline: none;
+        }
+        
+        .MemoUrl_Management_btn{
+            display: flex;
+            width: 100%;
+            margin-top: 1rem;
+            span{
+                flex: 1;
+                font-size: 1.8rem;
+                display: block;
+                padding: 1rem 0px;
+                border-radius: 3rem;
+                width: 100%;
+                color: white;
+                background: #4b7bff;
+                margin-left:1rem;
+                &:first-child{
+                    margin: 0px;
+                } 
+            }
+            .close{
+                background: #bbbbbb;
+            }
+        }
+    }
+    .openPane{
+        position: absolute;
+        width: 10rem;
+        padding: 1rem 2rem;
+        background: #4b7bff;
+        color: white;
+        right:0px;
+        left: 0px;
+        bottom:1rem;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        border-radius:10rem;
+    }
+    .tip{
+        font-size: 1.4rem;
+        margin: 1rem 0px;
+        color: red;
+    }
+}

@@ -83,9 +83,26 @@ export const setWindows=(windows)=>{
 }
 export const getState2=(state)=>{
   //获取信息
-  console.log(state,'state')
   return {
     type:'getState'
+  }
+
+}
+
+export const setDragId=(id)=>{
+  //设置整个正在拖拉的窗口id
+  return {
+    type:'setDragId',
+    id:id
+  }
+
+}
+
+export const setAdjustBarDragId=(id)=>{
+  //获取设置正在拖拉已缩放的窗口大小的id信息
+  return {
+    type:'setAdjustBarDragId',
+    id:id
   }
 
 }
