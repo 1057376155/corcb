@@ -26,6 +26,8 @@ const printHostingInstructions = require('react-dev-utils/printHostingInstructio
 const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const printBuildError = require('react-dev-utils/printBuildError');
 var btime=new Date().getTime()
+var zipper = require("zip-local");
+var stat=fs.stat;
 
 const measureFileSizesBeforeBuild =
   FileSizeReporter.measureFileSizesBeforeBuild;
@@ -36,6 +38,7 @@ const useYarn = fs.existsSync(paths.yarnLockFile);
 const WARN_AFTER_BUNDLE_GZIP_SIZE = 512 * 1024;
 const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024;
 
+var localGithubAddress="C:/Users/10573.DESKTOP-CTGL3BJ/Documents/GitHub/corcb"//本地github地址
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);
@@ -170,16 +173,70 @@ function chromeAnnotation(){
 
 function chromeNoAnnotation(){
   //解开注释
-  
   var file=path.join(__dirname, "../src/config/chromeOp.js")
   fs.readFile(file, 'utf8', function(err, data) {
     console.log("解开注释")
     fs.writeFile(file, data.replace(/\/\//g,''), 'utf8',(r)=>{
       console.log('打包时间'+(new Date().getTime()-btime)/1000)
-      console.log(chalk.red('Failed to compile.\n'));
-      printBuildError(err);
-      process.exit(1);
+      exists(path.join(__dirname,'../../corcb'),localGithubAddress,copy)
+      relocalGithub();
+      
     });
     
+  })
+}
+
+
+function relocalGithub(){
+  //修改github的文件
+  console.log('压缩中')
+  zipper.sync.zip(path.join(__dirname,'../build')).compress().save(localGithubAddress+"/build.zip",(r)=>{    
+    console.log(r)
+    printBuildError(err);
+    process.exit(1);
+    
+  })  
+}
+
+function copy(src,dst){
+  //读取目录
+  fs.readdir(src,function(err,paths){
+      if(err){
+          throw err;
+      }
+      paths.forEach(function(path){
+          if(path!='node_modules'){
+            var _src=src+'/'+path;
+            var _dst=dst+'/'+path;
+            var readable;
+            var writable;
+            stat(_src,function(err,st){
+                if(err){
+                    throw err;
+                }
+                
+                if(st.isFile()){
+                    readable=fs.createReadStream(_src);//创建读取流
+                    writable=fs.createWriteStream(_dst);//创建写入流
+                    readable.pipe(writable);
+                }else if(st.isDirectory()){
+                    exists(_src,_dst,copy);
+                }
+            });
+          }          
+      });
+  });
+}
+
+function exists(src,dst,callback){
+  //测试某个路径下文件是否存在cla
+  fs.exists(dst,function(exists){
+      if(exists){//不存在
+          callback(src,dst);
+      }else{//存在
+          fs.mkdir(dst,function(){//创建目录
+              callback(src,dst)
+          })
+      }
   })
 }

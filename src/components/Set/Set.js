@@ -107,7 +107,7 @@ class Set extends Component {
   }
   getNewVersion(){
     //去下载最新版本
-    window.open("https://github.com/1057376155/corcb/blob/master/build.rar")
+    window.open("https://github.com/1057376155/corcb/blob/master/build.zip")
   }
   clearSystemConfig(e){
     //重置配置文件

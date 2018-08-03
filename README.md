@@ -31,7 +31,7 @@
 
     设置->自定义字体->最小字号
     拉到最小
-### 2- 下载地址 https://github.com/1057376155/corcb/blob/master/build.rar
+### 2- 下载地址 https://github.com/1057376155/corcb/blob/master/build.zip
 ### 3- 解压
 ### 4- 安装
 记得要打开开发者模式哦！
