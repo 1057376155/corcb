@@ -153,7 +153,7 @@ class Set extends Component {
           </div>
           <div className="cell">
             <p>版本</p>
-            <p>v1.2.0 <strong onClick={this.getNewVersion}>{this.state.newVersion?"最新版本"+this.state.newVersion:""}</strong></p>
+            <p>v1.2.1 <strong onClick={this.getNewVersion}>{this.state.newVersion?"最新版本"+this.state.newVersion:""}</strong></p>
             
           </div>
           <div className="cell">
