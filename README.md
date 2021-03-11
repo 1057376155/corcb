@@ -1,9 +1,6 @@
 ### 这是一个chrome扩展程序 corcb 
 
 扩展如下
-
-
-![avatar](./Screenshots/1.png)
 ![avatar](./Screenshots/test.gif)
 
 ![avatar](./Screenshots/2.png)
