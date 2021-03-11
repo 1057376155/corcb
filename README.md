@@ -2,15 +2,6 @@
 由于 chrome 的第一个标签页太丑了 
 如下
 ![avatar](./Screenshots/1.png)
-### 真的特别丑
-那么作为一只前端狗 
-
-### 颜值即正义 ！！！
-
-所以用react写了这个东西(这是我第一个react项目)
-这个东西长这样的 
-
-### 多图预警！！！
 ![avatar](./Screenshots/test.gif)
 
 ![avatar](./Screenshots/2.png)
@@ -20,10 +11,6 @@
 ![avatar](./Screenshots/6.png)
 ![avatar](./Screenshots/7.png)
 
-
-嗯 这个看起来有点像mac？肯定要模仿一下apple才能维持一下生活这样子啦
-
-这是一个模拟桌面的扩展程序
 
 ## 使用教程
 
