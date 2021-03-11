@@ -1,5 +1,4 @@
-### 这是一个chrome扩展程序 corcb
-由于 chrome 的第一个标签页太丑了 
+### 这是一个chrome扩展程序 corcb 
 
 扩展如下
 
